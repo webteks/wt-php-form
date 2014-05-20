@@ -1,0 +1,20 @@
+{
+    "name": "WebTeks/PHPForm",
+    "description": "Filter, validate, and compile a form into a simple object",
+    "keywords": ["filter", "validation", "validator"],
+    "type": "library",
+    "license": "Not yet specified",
+    "authors": [
+        {
+            "name": "WebTeks PHPForm"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Webteks\\PHPForm\\": ""
+        }
+    },
+   	"require": {
+		"respect/validation": "0.5.x"
+	}
+}
