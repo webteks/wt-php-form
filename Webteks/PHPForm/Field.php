@@ -21,6 +21,8 @@ class Field
 		else
 			$this->label = $name;
 
+		$this->_validators = array();
+
 		if (!is_null($validators)) {
 
 			foreach ($validators as $validator) {
