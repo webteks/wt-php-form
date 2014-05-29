@@ -37,14 +37,17 @@ class Form
 
 		if ($name instanceof Field) {
 
-			$this->_fields[] = $name;
+			$this->_fields[$name->name] = $name;
 			return $this;
 
 		}
 
+		if (is_string($name) && isset($this->_fields[$name]))
+			return $this->_fields[$name];
+
 		$field = new Field($name, $label);
 
-		$this->_fields[] = $field;
+		$this->_fields[$name] = $field;
 
 		return $field;
 

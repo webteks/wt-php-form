@@ -69,18 +69,27 @@ class Field
 
 			$this->_validators[] = $method;
 
-		} elseif (is_callable($method)) {
+		} elseif (is_string($method)) {
 
-			$this->_validators[] = array($method, $args);
+			if (is_callable(array('Webteks/PHPForm/Filters', $method))) {
 
-		} elseif (is_callable(array('Webteks/PHPForm/Filters', $method))) {
+				$this->_validators[] = array(array('Webteks/PHPForm/Filters', $method), $args);
 
-			$this->_validators[] = array(array('Webteks/PHPForm/Filters', $method), $args);
+			} elseif (class_exists('Respect/Valiation/Rules/'.$method)) {
 
-		} elseif (class_exists('Respect/Valiation/Rules/'.$method)) {
+				$class = 'Respect/Valiation/Rules/'.$method;
+				$this->_validators[] = new $class($args);
 
-			$class = 'Respect/Valiation/Rules/'.$method;
-			$this->_validators[] = new $class($args);
+			} elseif (is_callable($method)) {
+
+				$this->_validators[] = array($method, $args);
+
+			} else {
+
+				throw new Exception('Invalid validator or filter given to field');
+
+			}
+
 
 		} else {
 

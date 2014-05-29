@@ -3,7 +3,7 @@
     "description": "Filter, validate, and compile a form into a simple object",
     "keywords": ["filter", "validation", "validator"],
     "type": "library",
-    "license": "Not yet specified",
+    "license": "MIT",
     "authors": [
         {
             "name": "WebTeks PHPForm"
@@ -14,7 +14,5 @@
             "Webteks\\PHPForm\\": ""
         }
     },
-   	"require": {
-		"respect/validation": "0.5.x"
-	}
+
 }
