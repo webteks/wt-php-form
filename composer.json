@@ -13,6 +13,5 @@
         "psr-0": {
             "Webteks\\PHPForm\\": ""
         }
-    },
-
+    }
 }
