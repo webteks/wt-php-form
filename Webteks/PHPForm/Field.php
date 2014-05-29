@@ -51,6 +51,7 @@ class Field
 	public function __call($method, $args) {
 		if (count($args))
 			$message = array_shift($args);
+		else $message = null;
 		$this->add($method, $message, $args);
 		return $this;
 	}
