@@ -67,7 +67,7 @@ class Field
 		if (is_object($method)) {
 
 			if (!method_exists($method, 'isValid')
-				&& !method_exists($method, 'validate'))
+				&& !method_exists($method, 'assert'))
 				throw new Exception('Invalid validation object given to field');
 
 			$this->_validators[] = $method;
