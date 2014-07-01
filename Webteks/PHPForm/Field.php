@@ -63,7 +63,6 @@ class Field
 	}
 
 	public function add($method, $message = false, $args = false) {
-
 		if (is_object($method)) {
 
 			if (!method_exists($method, 'isValid')
@@ -74,13 +73,13 @@ class Field
 
 		} elseif (is_string($method)) {
 
-			if (is_callable(array('Webteks/PHPForm/Filters', $method))) {
+			if (is_callable(array('\\Webteks\\PHPForm\\Filters', $method))) {
 
 				$this->_validators[] = array(array('Webteks/PHPForm/Filters', $method), $args);
 
-			} elseif (class_exists('Respect/Valiation/Rules/'.$method)) {
+			} elseif (class_exists('\\Respect\\Validation\\Rules\\'.$method)) {
 
-				$class = 'Respect/Valiation/Rules/'.$method;
+				$class = '\\Respect\\Validation\\Rules\\'.$method;
 				$this->_validators[] = new $class($args);
 
 			} elseif (is_callable($method)) {
