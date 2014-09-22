@@ -80,7 +80,8 @@ class Field
 			} elseif (class_exists('\\Respect\\Validation\\Rules\\'.$method)) {
 
 				$class = '\\Respect\\Validation\\Rules\\'.$method;
-				$this->_validators[] = new $class($args);
+				$obj = new \ReflectionClass($class);
+				$this->_validators[] = $obj->newInstanceArgs($args);
 
 			} elseif (is_callable($method)) {
 
