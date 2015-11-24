@@ -1,5 +1,5 @@
 {
-    "name": "WebTeks/PHPForm",
+    "name": "webteks/phpform",
     "description": "Filter, validate, and compile a form into a simple object",
     "keywords": ["filter", "validation", "validator"],
     "type": "library",
